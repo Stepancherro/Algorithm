@@ -1,4 +1,7 @@
+#-*- encoding: utf-8 -*-
+
 def insertion_sort(a):
+""" 插入排序, 升序"""
     for j in range(1, len(a)):
         key = a[j]   # Insert a[j] into the sorted sequence a[0,...,j-1]
         i = j - 1
