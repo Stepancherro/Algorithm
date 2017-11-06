@@ -4,7 +4,6 @@
 伪代码:
 ADD-BINARY(A, B):
     C = new integer[A.length + 1]
-    
     carry = 0
     for i = 1 to A.length
         C[i] = (A[i] + B[i] + carry) % 2  // remainder
