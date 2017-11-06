@@ -1,7 +1,7 @@
 #-*- encoding: utf-8 -*-
 
 def linear_search(a, v):
-"""线性查找，返回给定值v在列表中的位置"""
+"""线性查找，返回给定值v在列表中的位置""" 
     for i in range(0, len(a)):
         if a[i] == v:
             return i
