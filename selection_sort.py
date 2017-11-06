@@ -15,7 +15,7 @@ SELECTION-SORT(A):
 
 def selection_sort(a):
 """选择排序"""
-    for i in range(len(a)-1):   # 由于最后一次对比将最小的放在(n-1)处，自然较大的在最后
+    for i in range(len(a)-1):   # 由于最后一次对比将最小的放在(n-1)处，自然较大的在最后 
         min = i
         for j in range(i+1, len(a)):
             if a[j] < a[min]:
