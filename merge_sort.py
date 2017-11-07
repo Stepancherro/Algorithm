@@ -29,17 +29,17 @@ MERGE(A, p, q, r)
 
 def merge(a, p, q, r):
 """归并排序"""
-    n1 = q - p
+    n1 = q - p + 1
     n2 = r - q
     L = [0] * (n1)
     R = [0] * (n2)
     for i in range(n1):
         L[i] = a[p + i]
     for j in range(n2):
-        R[j] = a[q + j]
+        R[j] = a[q + j + 1]
     i = 0
     j = 0
-    for k in range(p, r):
+    for k in range(p, r + 1):
         if i >= n1:
             a[k] = R[j]
             j = j + 1
@@ -61,5 +61,5 @@ def merge_sort(a, p, r):
         merge(a, p, q, r)
 
 a = [5, 2, 4, 7, 1, 3, 2, 6]
-merge_sort(a, 0, 8)
+merge_sort(a, 0, 7)
 print(a)
