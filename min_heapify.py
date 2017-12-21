@@ -20,5 +20,5 @@ def min_heapify(A, i):
     return A
 
 A = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1]
-B = max_heapify(A, 2)
+B = min_heapify(A, 2)
 print(B)
