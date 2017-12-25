@@ -32,8 +32,8 @@ def heap_extract_min(A):
 
 
 def heap_decrease_key(A, i, key):
-    if key < A[i - 1]:
-        raise ValueError("new key is smaller than current key")
+    if key > A[i - 1]:
+        raise ValueError("new key is larger than current key")
     A[i - 1] = key
     while i > 1 and A[i // 2 - 1] > A[i - 1]:
         temp = A[i - 1]
@@ -43,10 +43,10 @@ def heap_decrease_key(A, i, key):
 
 
 def min_heap_insert(A, key):
-    A.append(- float("inf"))
+    A.append(float("inf"))
     heap_decrease_key(A, len(A), key)
 
 
 A = [1, 2, 3, 4, 7, 9, 10, 8, 14, 16]
-print(min_heap_insert(A, 5))
+min_heap_insert(A, 5)
 print(A)
