@@ -37,7 +37,7 @@ def select(items, n):
     for i in range(0, len(items), 5):
         group = sorted(items[i: i + 5])  # 对每组排序
         items[i: i + 5] = group  # 将已经排序好的子数组赋给原数组
-        median = group[median_index(len(group))]  # sorted() + median_index(), 求解中位数索引的“黑箱子”子程序
+        median = group[median_index(len(group))]  # sorted() + median_index(), 求解中位数索引
         medians.append(median)
 
     pivot = select(medians, median_index(len(medians)) + 1)  # 递归调用select(), 求解中位数的中位数
