@@ -19,6 +19,10 @@ class HashTable(object):
     def _hash(self, key):  # _hash()散列函数,给出关键字k,计算其散列位置,即h(k)
         return abs(hash(key)) % self.size  # hash()用于获取一个对象(字符串或者数值等)的哈希值
 
+    def _rehash(self, old_hash):
+        # 线性探查,如果散列位置已经有元素,则移到下一个位置
+        return (old_hash + 1) % self.size
+
     def search(self, key):
         # 给出关键字,查找节点
         j = self._hash(key)  # 计算出关键字k散列到表中的位置j
@@ -35,10 +39,6 @@ class HashTable(object):
         initial_hash = j = self._hash(key)  # 计算出关键字k散列到表中的位置j
 
         while True:
-            if self._len == self.size:
-                # 散列表已满
-                raise ValueError("Table is full")
-
             node = self._table[j]
             if node is None:
                 # 可以插入该元素
@@ -48,6 +48,11 @@ class HashTable(object):
             elif node.key == key:
                 # 元素已存在
                 return
+
+            j = self._rehash(j)  # 更新散列位置
+            if initial_hash == j:
+                # 散列表已满
+                raise ValueError("Table is full")
 
     def delete(self, key):
         j = self._hash(key)
